@@ -1,0 +1,25 @@
+#默认使用配置
+spring:
+  profiles:
+    active: dev
+
+#公共配置与profiles选择无关
+mybatis:
+  typeAliasesPackage: com.liuxl.entity
+  mapperLocations: classpath:mapper/*.xml
+#分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+---
+#开发配置
+spring:
+  profiles: dev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: ypm2al
+    driver-class-name: com.mysql.cj.jdbc.Driver
