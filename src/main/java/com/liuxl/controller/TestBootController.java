@@ -1,6 +1,7 @@
 package com.liuxl.controller;
 
 import com.liuxl.entity.User;
+import org.apache.log4j.Logger;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
