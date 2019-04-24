@@ -1,10 +1,8 @@
 package com.liuxl.util;
 
-import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.apache.log4j.Logger;
+
+import java.text.MessageFormat;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,9 +13,6 @@ import org.apache.log4j.Logger;
  */
 public class LoggerUtil {
 
-    private static final String TRACE_MARKER = "[TraceId:{0}] ";
-    private static final String TIME_FORMAT = "yyyyMMddHHmmss";
-
     /**
      * 生成trace的模板
      *
@@ -27,7 +22,7 @@ public class LoggerUtil {
      */
     public static String getMessage(String template, Object... parameters) {
 
-        return MessageFormat.format(TRACE_MARKER, getTraceId()) + MessageFormat.format(template, parameters);
+        return MessageFormat.format(template, parameters);
     }
 
     /**
@@ -134,18 +129,5 @@ public class LoggerUtil {
      */
     public static void error(Throwable e, Logger logger, String template, Object... parameters) {
         logger.error(getMessage(template, parameters), e);
-    }
-
-    /**
-     * traceid
-     *
-     * @return
-     */
-    private static String getTraceId() {
-        //格式化对象
-        SimpleDateFormat sdf = new SimpleDateFormat(TIME_FORMAT);
-        Date date = new Date();
-        String tempD = sdf.format(date);
-        return tempD + ((int) (Math.random() * 300) + 100);
     }
 }
