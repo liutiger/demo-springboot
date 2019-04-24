@@ -2,6 +2,7 @@ package com.liuxl.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.liuxl.entity.User;
+import com.liuxl.entity.core.Result;
 import com.liuxl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -39,8 +40,8 @@ public class UserController {
     }
 
     @RequestMapping(path = "/page", method = RequestMethod.GET)
-    public PageInfo getpage(int pageSize, int pageNumber) {
-        PageInfo user = userService.queryPage(pageSize, pageNumber);
+    public Result<PageInfo> getpage(int pageSize, int pageNumber) {
+        Result<PageInfo> user = userService.queryPage(pageSize, pageNumber);
         return user;
     }
 }

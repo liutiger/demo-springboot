@@ -1,6 +1,5 @@
 package com.liuxl;
 
-import com.liuxl.base.core.Result;
 import com.liuxl.common.exception.DemoException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,9 +24,9 @@ public class DemoControllerAdvice {
      * @return
      */
     @ResponseBody
-    @ExceptionHandler(value = Exception.class)
-    public Map errorHandler(Exception ex) {
-        Map map = new HashMap();
+    @ExceptionHandler(value = Throwable.class)
+    public Map errorHandler(Throwable ex) {
+        Map map = new HashMap(2);
         map.put("msg", ex.getMessage());
         map.put("details", ex.getStackTrace());
         return map;
@@ -42,7 +41,7 @@ public class DemoControllerAdvice {
     @ResponseBody
     @ExceptionHandler(value = DemoException.class)
     public Map myErrorHandler(DemoException ex) {
-        Map map = new HashMap();
+        Map map = new HashMap(2);
         map.put("code", ex.getCode());
         map.put("msg", ex.getMsg());
         return map;

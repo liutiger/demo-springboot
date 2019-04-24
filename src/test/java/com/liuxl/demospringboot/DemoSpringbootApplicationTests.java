@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.liuxl.entity.User;
+import com.liuxl.entity.core.Result;
 import com.liuxl.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +20,7 @@ public class DemoSpringbootApplicationTests {
 
     @Test
     public void contextLoads() {
-        PageInfo page  = userService.queryPage(1,2);
+        Result<PageInfo>  page  = userService.queryPage(1,2);
         System.out.println(JSONObject.toJSONString(page));
     }
 

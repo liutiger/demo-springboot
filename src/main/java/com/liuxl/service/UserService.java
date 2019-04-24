@@ -2,6 +2,7 @@ package com.liuxl.service;
 
 import com.github.pagehelper.PageInfo;
 import com.liuxl.entity.User;
+import com.liuxl.entity.core.Result;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface UserService {
 
     List<User> queryList();
 
-    PageInfo queryPage(int pageSize, int pageNumber);
+    Result<PageInfo> queryPage(int pageSize, int pageNumber);
 }
