@@ -1,6 +1,5 @@
 package com.liuxl;
 
-import com.google.common.base.Stopwatch;
 import com.liuxl.common.demoEnum.DemoCode;
 import com.liuxl.common.exception.DemoException;
 import com.liuxl.entity.core.Result;
