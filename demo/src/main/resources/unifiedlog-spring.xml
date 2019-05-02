@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd" default-autowire="byName">
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+    <bean id="unifiedLogAdvisorPointCut" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="patterns">
+            <list>
+                <value>com.liuxl.*</value>
+            </list>
+        </property>
+        <property name="advice">
+            <ref bean="unifiedLogAdvisor"/>
+        </property>
+    </bean>
+
+    <bean id="unifiedLogAdvisor" class="com.liuxl.advisor.UnifiedLogAdvisor">
+        <property name="localAppName" value="springboot"/>
+        <property name="asPartPath" value="true"/>
+        <property name="maxFileSize" value="9"/>
+        <property name="maxUseTime" value="3000"/>
+        <property name="ingoreException">
+            <set>
+                <value>com.liuxl.exception.CommonException</value>
+            </set>
+        </property>
+    </bean>
+
+</beans>
